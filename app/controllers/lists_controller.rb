@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   def create
     @list = @board.lists.new(list_params)
     if @list.save
-      redirect_to [@board, @list]
+      redirect_to boards_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ListsController < ApplicationController
   
   def update
     if @list.update(list_params)
-      redirect_to [@board, @list]
+      redirect_to boards_path
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class ListsController < ApplicationController
   
   def destroy
     @list.destroy
-    redirect_to 
+    redirect_to ###
   end
   
   private

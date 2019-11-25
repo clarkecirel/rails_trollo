@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     if @board.save
-      redirect_to boards_path
+      redirect_to new_board_list_path(@board)
     else
       render :new
     end
@@ -34,6 +34,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
+    redirect_to boards_path(@board)
   end
 
   private
